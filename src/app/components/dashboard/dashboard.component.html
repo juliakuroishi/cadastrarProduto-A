@@ -1,0 +1,41 @@
+<button (click)="logout()">Sair</button>
+
+<h2>Produtos</h2>
+
+<button (click)="abrirModal()">Cadastrar Produto</button>
+
+<!--apresentar lista de produtos cadastrados-->
+<div *ngFor="let p of produtos">
+  <div class="imagem">
+    <img [src]="p.foto" >
+  </div>
+
+  <div>
+    <span> Nome: {{p.nome}} </span>
+  </div>
+
+  <div>
+    <span> Preço: {{p.preco | currency:'BRL'}} </span>
+  </div> 
+  <div>
+    <span> Descrição: {{p.descricao}} </span>
+  </div> 
+  <div>
+    <span> Validade: {{p.validade | date:'dd/MM/yyyy'}} </span>
+
+  </div> 
+
+  <div>
+    <button (click)="editarProduto()">Editar produto</button>
+  </div>
+</div>
+
+
+
+<div class="modal" *ngIf="modalAberta">
+  <div class="modal-content">
+    <div class="modal-form">
+      <app-form (produtoCadastrado)="cadastrarProduto($event)" (cancelar)="fecharModal()"></app-form>
+    </div>
+  </div>
+</div>

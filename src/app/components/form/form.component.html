@@ -1,0 +1,29 @@
+<div class="modal">
+    <div class="modal-content">
+      
+      
+      <div class="modal-form">
+        <h2>Cadastrar Produto</h2>
+
+        <label for="nome">Nome do produto:</label>
+        <input id="nome" type="text" placeholder="Nome" [(ngModel)]="produto.nome" required>
+
+        <label for="valor">Preço:</label>
+        <input id="valor" type="number" placeholder="Preço" [(ngModel)]="produto.preco">
+
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" placeholder="Descrição" [(ngModel)]="produto.descricao"></textarea>
+
+        <label for="validade">Data de validade:</label>
+        <input id="validade" type="date" [(ngModel)]="produto.validade">
+
+        <label for="img">Insira a imagem:</label>
+        <input id="img" type="file">
+  
+        <button id="salvar" (click)="salvar()">Salvar</button>
+        <button id="cancelar"  (click)="cancelarForm()">Cancelar</button>
+      </div>
+  
+    </div>
+  </div>
+  

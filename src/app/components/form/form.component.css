@@ -1,0 +1,64 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    display: flex;
+    background-color: #fff;
+    width: 700px;
+    max-width: 90%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  
+  .modal-form {
+    width: 60%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .modal-form h2 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 22px;
+  }
+  
+  .modal-form input,
+  .modal-form textarea {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modal-form button {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+  }
+
+  #salvar {
+    background-color: green;
+  }
+
+  #cancelar {
+    background-color: red;
+  }
+  
+  .modal-form button:hover {
+    background-color: #119aa3;
+  }
+  
