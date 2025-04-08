@@ -38,6 +38,7 @@ npm install
 4. Rode o projeto:
 ```bash
 npm start
+ng add @angular/material
 ```
 
 5. Acesse no navegador:
