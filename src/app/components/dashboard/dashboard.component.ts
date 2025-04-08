@@ -1,13 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Produto, ProdutoService } from '../../services/produtos.service';
-import { Form } from '@angular/forms';
-import { FormComponent } from '../form/form.component';
+import {FormComponent} from '../form/form.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { MatDialog } from '@angular/material/dialog';
+import { EditComponent } from '../edit/edit.component';
+
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, FormComponent],
+  imports: [MatButtonModule, MatIconModule, MatDividerModule, CommonModule, FormComponent, MatCardModule, SidebarComponent ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -17,13 +23,9 @@ export class DashboardComponent {
   produtos: Produto[] = []; // lista de produtos em memória
   modalAberta  = false; // controla se o modal aparece ou não
 
-  constructor(private router: Router, private produtoService: ProdutoService) {
+  constructor( private produtoService: ProdutoService, private dialog:MatDialog) {
     this.produtos = this.produtoService.listar();
   }
-
-  logout(){
-    this.router.navigate(['']);
-  } 
 
   abrirModal() {
     this.modalAberta  = true;
@@ -38,8 +40,24 @@ export class DashboardComponent {
     this.produtos = this.produtoService.listar();
     this.fecharModal();
   }
-
-  editarProduto(){
-    console.log('editar')
+  
+  editarProduto(produto: Produto) {
+    const dialogRef = this.dialog.open(EditComponent, {
+      data: { ...produto } // cuidado pra não editar direto o original
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result?.acao === 'salvar') {
+        this.produtoService.atualizar(result.produto);
+        this.produtos = this.produtoService.listar();
+      }
+  
+      if (result?.acao === 'deletar') {
+        this.produtoService.deletar(result.produto);
+        this.produtos = this.produtoService.listar();
+      }
+    });
   }
+  
+  
 }

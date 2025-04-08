@@ -6,7 +6,7 @@ export interface Produto {
   preco: number;
   descricao: string;
   validade: Date;
-  foto: string; // url da imagem
+  imagem: string; 
 }
 
 @Injectable({
@@ -25,7 +25,21 @@ export class ProdutoService {
     this.produtos.push(produto);
   }
 
-  remover(id: number) {
-    this.produtos = this.produtos.filter(p => p.id !== id);
+  deletar(produto: Produto) {
+    const index = this.produtos.findIndex(p => p.id === produto.id);
+    
+    if (index > -1) {
+      this.produtos.splice(index, 1); // remove da lista
+    }
   }
+
+  atualizar(produto: Produto) {
+    const index = this.produtos.findIndex(p => p.id === produto.id);
+  
+    if (index > -1) {
+      this.produtos[index] = produto;
+      localStorage.setItem('produtos', JSON.stringify(this.produtos));
+    }
+  }
+  
 }

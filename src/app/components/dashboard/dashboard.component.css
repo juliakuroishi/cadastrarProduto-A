@@ -1,79 +1,98 @@
-/* estilo geral */
+/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-  }
-  
-  /* container dos produtos */
-  div[ngFor] {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-    transition: 0.3s;
-  }
-  
-  div[ngFor]:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* imagem do produto */
-  .imagem img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-  
-  /* infos do produto */
-  div[ngFor] > div {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-left: 10px;
-    flex: 1;
-  }
-  
-  span {
-    font-size: 14px;
-    color: #333;
-  }
-  
-  /* Modal */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    max-width: 90%;
-  }
-  
-  .modal-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+/* Lista de produtos */
+mat-card {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content:flex-start;
+}
+
+/* Cada card de produto */
+div[ngFor] {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+div[ngFor]:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagem do produto */
+.imagem img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.conteudo {
+  padding: 20px;
+  flex: 1;
+  padding: 20px;
+}
+
+.container-geral {
+  display: flex;
+}
+
+.cadastrar {
+  margin: 20px;
+}
+
+
+

@@ -2,26 +2,56 @@
     <div class="modal-content">
       
       
+      
       <div class="modal-form">
         <h2>Cadastrar Produto</h2>
 
-        <label for="nome">Nome do produto:</label>
-        <input id="nome" type="text" placeholder="Nome" [(ngModel)]="produto.nome" required>
+        <mat-form-field appearance="fill">
+          <mat-label>Nome do produto:</mat-label>
+          <input matInput type="text" placeholder="Nome" [(ngModel)]="produto.nome" required #nome="ngModel">
+        </mat-form-field>
+        
+        <mat-form-field>
+          <mat-label>Preço</mat-label>
+          <input matInput id="valor" type="number" placeholder="Preço" [(ngModel)]="produto.preco">
+        </mat-form-field>
 
-        <label for="valor">Preço:</label>
-        <input id="valor" type="number" placeholder="Preço" [(ngModel)]="produto.preco">
+        <mat-form-field>
+          <mat-label>Descrição:</mat-label>
+          <textarea matInput id="descricao" placeholder="Descrição" [(ngModel)]="produto.descricao"></textarea>
+        </mat-form-field>
 
-        <label for="descricao">Descrição</label>
-        <textarea id="descricao" placeholder="Descrição" [(ngModel)]="produto.descricao"></textarea>
-
-        <label for="validade">Data de validade:</label>
-        <input id="validade" type="date" [(ngModel)]="produto.validade">
-
-        <label for="img">Insira a imagem:</label>
-        <input id="img" type="file">
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Data de validade</mat-label>
   
-        <button id="salvar" (click)="salvar()">Salvar</button>
-        <button id="cancelar"  (click)="cancelarForm()">Cancelar</button>
+          <input 
+            matInput 
+            [matDatepicker]="picker" 
+            placeholder="DD/MM/AAAA"
+            [(ngModel)]="produto.validade">
+        
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+        
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+
+        <mat-form-field>
+          <mat-label>Insira a imagem:</mat-label>
+          <input matInput>
+        </mat-form-field>
+  
+        <div class="botoes">
+          <button id="salvar" mat-flat-button  (click)="salvar()">
+            <mat-icon>save</mat-icon>
+            Salvar</button>
+          <button id="cancelar" mat-stroked-button (click)="cancelarForm()">
+            <mat-icon>cancel</mat-icon>
+            Cancelar</button>
+        </div>
+        
       </div>
   
     </div>

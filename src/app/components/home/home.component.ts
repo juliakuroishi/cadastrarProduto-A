@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
 
-@Component({ //avisa que esse arquivo é um componente
-  selector: 'app-home', //como usar ele 
-  imports: [],
+@Component({ 
+  selector: 'app-home', 
+  imports: [MatButtonModule, MatIconModule, MatDividerModule, MatCardModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

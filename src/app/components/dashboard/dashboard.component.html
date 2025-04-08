@@ -1,14 +1,25 @@
-<button (click)="logout()">Sair</button>
+<div class="container-geral">
+<app-sidebar></app-sidebar>
 
+<div class="conteudo">
 <h2>Produtos</h2>
 
-<button (click)="abrirModal()">Cadastrar Produto</button>
+<button class="cadastrar" mat-flat-button (click)="abrirModal()">
+  <mat-icon>add</mat-icon>
+  <span>Cadastrar Produto</span>
+</button>
+
 
 <!--apresentar lista de produtos cadastrados-->
+<mat-card appearance="outlined">
 <div *ngFor="let p of produtos">
+  
+  <mat-card-content>
+
   <div class="imagem">
-    <img [src]="p.foto" >
+    <img [src]="p.imagem" >
   </div>
+
 
   <div>
     <span> Nome: {{p.nome}} </span>
@@ -26,9 +37,16 @@
   </div> 
 
   <div>
-    <button (click)="editarProduto()">Editar produto</button>
+    <button id="editar" mat-stroked-button (click)="editarProduto(p)">
+      <mat-icon>edit</mat-icon>
+      Editar produto</button>
   </div>
+
+ 
+
+</mat-card-content>
 </div>
+</mat-card>
 
 
 
@@ -38,4 +56,6 @@
       <app-form (produtoCadastrado)="cadastrarProduto($event)" (cancelar)="fecharModal()"></app-form>
     </div>
   </div>
+</div>
+</div>
 </div>

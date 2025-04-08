@@ -1,0 +1,26 @@
+<h2>Editar Produto</h2>
+
+<input type="text" [(ngModel)]="produto.nome" placeholder="Nome">
+<input type="number" [(ngModel)]="produto.preco" placeholder="Preço">
+<input type="text" [(ngModel)]="produto.descricao" placeholder="Descrição">
+<input type="date" [(ngModel)]="produto.validade">
+
+<input type="file" >
+
+<img *ngIf="produto.imagem" [src]="produto.imagem" alt="Imagem" width="200">
+
+<div class="botoes">
+  
+  <button mat-stroked-button (click)="salvar()">
+      <mat-icon>save</mat-icon>
+      Atualizar</button>
+
+      <button mat-flat-button color="warn" (click)="deletar()">
+        <mat-icon>delete</mat-icon>
+        Excluir</button>
+
+        <button mat-stroked-button (click)="cancelar()">
+            <mat-icon>close-small</mat-icon>
+            Cancelar</button>
+</div>
+

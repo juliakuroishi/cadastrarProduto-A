@@ -1,0 +1,12 @@
+div {
+    width: 200px;
+    height: 100vh;
+    background-color: #c2185b; /* cor exemplo */
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+p{
+    color: white;
+}
