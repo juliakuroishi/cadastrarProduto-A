@@ -37,18 +37,14 @@ export const MY_DATE_FORMATS = {
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    
   ],
-  providers: [
-    provideNativeDateAdapter(),
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
-    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })
 export class FormComponent {
+  dataMinima: Date = new Date();
   
   @Output() produtoCadastrado = new EventEmitter<Produto>();  
   @Output() cancelar = new EventEmitter<void>();

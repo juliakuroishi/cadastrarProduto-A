@@ -1,9 +1,6 @@
 <div class="modal">
     <div class="modal-content">
-      
-      
-      
-      <div class="modal-form">
+  
         <h2>Cadastrar Produto</h2>
 
         <mat-form-field appearance="fill">
@@ -13,7 +10,13 @@
         
         <mat-form-field>
           <mat-label>Preço</mat-label>
-          <input matInput id="valor" type="number" placeholder="Preço" [(ngModel)]="produto.preco">
+          <input matInput 
+          id="valor" 
+          type="number" 
+          placeholder="Preço" 
+          [(ngModel)]="produto.preco"
+          [value]="produto.preco | currency:'R$':'symbol':'1.2-2'">
+          
         </mat-form-field>
 
         <mat-form-field>
@@ -21,6 +24,7 @@
           <textarea matInput id="descricao" placeholder="Descrição" [(ngModel)]="produto.descricao"></textarea>
         </mat-form-field>
 
+        <!-- data de validade -->
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Data de validade</mat-label>
   
@@ -28,7 +32,8 @@
             matInput 
             [matDatepicker]="picker" 
             placeholder="DD/MM/AAAA"
-            [(ngModel)]="produto.validade">
+            [(ngModel)]="produto.validade"
+            [min]="dataMinima">
         
           <mat-datepicker-toggle matSuffix [for]="picker">
             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
@@ -36,12 +41,18 @@
         
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        
+        <!--  /// data de validade -->
 
         <mat-form-field>
           <mat-label>Insira a imagem:</mat-label>
           <input matInput>
         </mat-form-field>
+
+        <!-- como deixar o input de imagem correto?
+
+        <input type="file" >
+
+        <img *ngIf="produto.imagem" [src]="produto.imagem" alt="Imagem" width="200"> -->
   
         <div class="botoes">
           <button id="salvar" mat-flat-button  (click)="salvar()">
@@ -52,8 +63,6 @@
             Cancelar</button>
         </div>
         
-      </div>
-  
     </div>
   </div>
   

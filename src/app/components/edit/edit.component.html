@@ -1,13 +1,48 @@
+<div class="form-edit">
+
+<div class="form-edit-content">
+
+
 <h2>Editar Produto</h2>
 
-<input type="text" [(ngModel)]="produto.nome" placeholder="Nome">
-<input type="number" [(ngModel)]="produto.preco" placeholder="Preço">
-<input type="text" [(ngModel)]="produto.descricao" placeholder="Descrição">
-<input type="date" [(ngModel)]="produto.validade">
+<mat-form-field appearance="fill">
+  <mat-label>Nome do produto:</mat-label>
+  <input matInput type="text" placeholder="Nome" [(ngModel)]="produto.nome" required #nome="ngModel">
+</mat-form-field>
 
-<input type="file" >
+<mat-form-field>
+  <mat-label>Preço</mat-label>
+  <input matInput id="valor" type="number" placeholder="Preço" [(ngModel)]="produto.preco">
+</mat-form-field>
 
-<img *ngIf="produto.imagem" [src]="produto.imagem" alt="Imagem" width="200">
+<mat-form-field>
+  <mat-label>Descrição:</mat-label>
+  <textarea matInput id="descricao" placeholder="Descrição" [(ngModel)]="produto.descricao"></textarea>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="example-full-width">
+  <mat-label>Data de validade</mat-label>
+
+  <input 
+    matInput 
+    [matDatepicker]="picker" 
+    placeholder="DD/MM/AAAA"
+    [(ngModel)]="produto.validade">
+
+  <mat-datepicker-toggle matSuffix [for]="picker">
+    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+  </mat-datepicker-toggle>
+
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+
+<mat-form-field>
+  <mat-label>Insira a imagem:</mat-label>
+  <input matInput>
+</mat-form-field>
+
+
 
 <div class="botoes">
   
@@ -15,12 +50,14 @@
       <mat-icon>save</mat-icon>
       Atualizar</button>
 
-      <button mat-flat-button color="warn" (click)="deletar()">
+      <button mat-flat-button  (click)="deletar()">
         <mat-icon>delete</mat-icon>
         Excluir</button>
 
         <button mat-stroked-button (click)="cancelar()">
             <mat-icon>close-small</mat-icon>
             Cancelar</button>
+</div>
+</div>
 </div>
 

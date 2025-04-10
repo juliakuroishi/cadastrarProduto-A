@@ -1,0 +1,30 @@
+.form-edit  {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .form-edit-content {
+    background-color: #fff;
+    width: 700px;
+    max-width: 90%;
+    border-radius: 8px;
+ 
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .botoes{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }

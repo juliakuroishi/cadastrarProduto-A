@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+    background-color: rgba(0, 0, 0, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,15 +16,13 @@
     width: 700px;
     max-width: 90%;
     border-radius: 8px;
-  }
-  
-  
-  .modal-form {
     padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
+  
+
   
   .modal-form h2 {
     margin-bottom: 10px;
@@ -37,5 +35,6 @@
   .botoes{
     display: flex;
     justify-content: center;
+    gap: 20px;
   }
   
