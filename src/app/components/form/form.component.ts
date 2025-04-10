@@ -45,6 +45,8 @@ export const MY_DATE_FORMATS = {
 })
 export class FormComponent {
   dataMinima: Date = new Date();
+ 
+
   
   @Output() produtoCadastrado = new EventEmitter<Produto>();  
   @Output() cancelar = new EventEmitter<void>();
@@ -86,9 +88,17 @@ export class FormComponent {
     this.cancelar.emit();
   }
 
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
   
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.produto.imagem = reader.result as string; // base64
+      };
+      reader.readAsDataURL(file);
+    }
 
 }
+}  
   
-  
-

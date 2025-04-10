@@ -1,5 +1,6 @@
-<div class="container-geral">
 <app-sidebar></app-sidebar>
+<div class="container-geral">
+
 
 <div class="conteudo">
 <h2>Produtos</h2>
@@ -22,22 +23,22 @@
 
 
   <div>
-    <span> Nome: {{p.nome}} </span>
+    <span>  <strong>Nome:</strong> {{p.nome}} </span>
   </div>
 
   <div>
-    <span> Preço: {{p.preco | currency:'BRL'}} </span>
+    <span> <strong>Preço:</strong> {{p.preco |currency:'R$':'symbol':'1.2-2':'pt-BR' }} </span>
   </div> 
   <div>
-    <span> Descrição: {{p.descricao}} </span>
+    <span> <strong>Descrição:</strong> {{p.descricao}} </span>
   </div> 
   <div>
-    <span> Validade: {{p.validade | date:'dd/MM/yyyy'}} </span>
+    <span>  <strong>Validade:</strong>{{p.validade | date:'dd/MM/yyyy'}} </span>
 
   </div> 
 
   <div>
-    <button id="editar" mat-stroked-button (click)="editarProduto(p)">
+    <button id="editar" mat-fab extended (click)="editarProduto(p)">
       <mat-icon>edit</mat-icon>
       Editar produto</button>
   </div>

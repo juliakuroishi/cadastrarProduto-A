@@ -1,10 +1,13 @@
 div {
     width: 200px;
     height: 100vh;
-    background-color: #c2185b; /* cor exemplo */
+    background-color: #c2185b; 
     display: flex;
     flex-direction: column;
     padding: 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 p{

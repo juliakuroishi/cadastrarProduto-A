@@ -9,7 +9,10 @@ import {MatCardModule} from '@angular/material/card';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EditComponent } from '../edit/edit.component';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
+registerLocaleData(localePt, 'pt-BR');
 
 @Component({
   selector: 'app-dashboard',

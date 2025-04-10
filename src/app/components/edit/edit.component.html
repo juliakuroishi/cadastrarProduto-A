@@ -37,26 +37,30 @@
 </mat-form-field>
 
 
-<mat-form-field>
-  <mat-label>Insira a imagem:</mat-label>
-  <input matInput>
-</mat-form-field>
+<!-- Input de imagem -->
+<input type="file" (change)="onFileSelected($event)" accept="image/*">
+
+<!-- Pré-visualização da imagem -->
+<img *ngIf="produto.imagem" [src]="produto.imagem" alt="Imagem" width="100">
 
 
 
 <div class="botoes">
   
-  <button mat-stroked-button (click)="salvar()">
+  
+  <button mat-flat-button (click)="salvar()">
       <mat-icon>save</mat-icon>
       Atualizar</button>
 
-      <button mat-flat-button  (click)="deletar()">
-        <mat-icon>delete</mat-icon>
-        Excluir</button>
-
+      
         <button mat-stroked-button (click)="cancelar()">
             <mat-icon>close-small</mat-icon>
             Cancelar</button>
+
+            <button mat-raised-button (click)="deletar()" >
+              <mat-icon>delete</mat-icon>
+              Excluir produto</button>
+      
 </div>
 </div>
 </div>

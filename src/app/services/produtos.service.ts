@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+
+// define oq deve contem o produto:
 export interface Produto {
   id: number;
   nome: string;
@@ -12,19 +14,38 @@ export interface Produto {
 @Injectable({
   providedIn: 'root'
 })
-export class ProdutoService {
-  private produtos: Produto[] = [];
-  private proximoId = 1;
 
+
+export class ProdutoService {
+  // cria a lista de produtos, inicialmente vazia
+  private produtos: Produto[] = [
+    {
+      id: 1,
+      nome: 'Bília de Estudo',
+      preco: 120.50,
+      descricao: 'NTLH, letra grande, capa dura',
+      validade: new Date('2050-12-31'),
+      imagem: 'https://link-da-imagem.com/mouse.jpg'
+    }
+  ];
+  private proximoId = 2;
+
+
+  //  ======= Métodos =========
+  // lista os produtos do array
   listar(): Produto[] {
     return this.produtos;
   }
+  
 
+  // adiciona produtos
   adicionar(produto: Produto) {
     produto.id = this.proximoId++;
     this.produtos.push(produto);
   }
 
+
+  // deleta produto (função chamada pelo deletar do dash)
   deletar(produto: Produto) {
     const index = this.produtos.findIndex(p => p.id === produto.id);
     
@@ -33,6 +54,8 @@ export class ProdutoService {
     }
   }
 
+
+  // atualiza o produto
   atualizar(produto: Produto) {
     const index = this.produtos.findIndex(p => p.id === produto.id);
   

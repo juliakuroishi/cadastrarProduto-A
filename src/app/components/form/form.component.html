@@ -14,8 +14,7 @@
           id="valor" 
           type="number" 
           placeholder="Preço" 
-          [(ngModel)]="produto.preco"
-          [value]="produto.preco | currency:'R$':'symbol':'1.2-2'">
+          [(ngModel)]="produto.preco">
           
         </mat-form-field>
 
@@ -25,7 +24,7 @@
         </mat-form-field>
 
         <!-- data de validade -->
-        <mat-form-field appearance="fill" class="example-full-width">
+        <mat-form-field appearance="fill" class="validade">
           <mat-label>Data de validade</mat-label>
   
           <input 
@@ -41,18 +40,18 @@
         
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <!--  /// data de validade -->
+        <!--  /// data de validade 
+        
+        === melhoria ===
+        opção de "nao se aplica" para data de validade
+        < mat-checkbox  class = "sem-validade" > Não se aplica </ mat-checkbox > 
 
-        <mat-form-field>
-          <mat-label>Insira a imagem:</mat-label>
-          <input matInput>
-        </mat-form-field>
+        -->
+<!-- Input de imagem -->
+<input type="file" (change)="onFileSelected($event)" accept="image/*">
 
-        <!-- como deixar o input de imagem correto?
-
-        <input type="file" >
-
-        <img *ngIf="produto.imagem" [src]="produto.imagem" alt="Imagem" width="200"> -->
+<!-- Pré-visualização da imagem -->
+<img *ngIf="produto.imagem" [src]="produto.imagem" alt="Imagem" width="200">
   
         <div class="botoes">
           <button id="salvar" mat-flat-button  (click)="salvar()">
