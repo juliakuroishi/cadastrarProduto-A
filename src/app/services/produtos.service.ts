@@ -25,7 +25,7 @@ export class ProdutoService {
       preco: 120.50,
       descricao: 'NTLH, letra grande, capa dura',
       validade: new Date('2050-12-31'),
-      imagem: 'https://link-da-imagem.com/mouse.jpg'
+      imagem: 'assets/imagens/biblia.jpg'
     }
   ];
   private proximoId = 2;

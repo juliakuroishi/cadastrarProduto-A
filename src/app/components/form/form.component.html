@@ -1,67 +1,58 @@
 <div class="modal">
-    <div class="modal-content">
-  
-        <h2>Cadastrar Produto</h2>
+  <div class="modal-content">
 
-        <mat-form-field appearance="fill">
-          <mat-label>Nome do produto:</mat-label>
-          <input matInput type="text" placeholder="Nome" [(ngModel)]="produto.nome" required #nome="ngModel">
-        </mat-form-field>
-        
-        <mat-form-field>
-          <mat-label>Preço</mat-label>
-          <input matInput 
-          id="valor" 
-          type="number" 
-          placeholder="Preço" 
-          [(ngModel)]="produto.preco">
-          
-        </mat-form-field>
+    <h2>Cadastrar Produto</h2>
 
-        <mat-form-field>
-          <mat-label>Descrição:</mat-label>
-          <textarea matInput id="descricao" placeholder="Descrição" [(ngModel)]="produto.descricao"></textarea>
-        </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nome do produto:</mat-label>
+      <input matInput type="text" placeholder="Nome" [(ngModel)]="produto.nome" required #nome="ngModel">
+    </mat-form-field>
 
-        <!-- data de validade -->
-        <mat-form-field appearance="fill" class="validade">
-          <mat-label>Data de validade</mat-label>
-  
-          <input 
-            matInput 
-            [matDatepicker]="picker" 
-            placeholder="DD/MM/AAAA"
-            [(ngModel)]="produto.validade"
-            [min]="dataMinima">
-        
-          <mat-datepicker-toggle matSuffix [for]="picker">
-            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-          </mat-datepicker-toggle>
-        
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <!--  /// data de validade 
+    <mat-form-field>
+      <mat-label>Preço</mat-label>
+      <input matInput id="valor" type="number" placeholder="Preço" [(ngModel)]="produto.preco">
+
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Descrição:</mat-label>
+      <textarea matInput id="descricao" placeholder="Descrição" [(ngModel)]="produto.descricao"></textarea>
+    </mat-form-field>
+
+    <!-- data de validade -->
+    <mat-form-field appearance="fill" class="validade">
+      <mat-label>Data de validade</mat-label>
+
+      <input matInput [matDatepicker]="picker" placeholder="DD/MM/AAAA" [(ngModel)]="produto.validade"
+        [min]="dataMinima">
+
+      <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <!--  /// data de validade 
         
         === melhoria ===
         opção de "nao se aplica" para data de validade
         < mat-checkbox  class = "sem-validade" > Não se aplica </ mat-checkbox > 
 
         -->
-<!-- Input de imagem -->
-<input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <!-- Input de imagem -->
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
 
-<!-- Pré-visualização da imagem -->
-<img *ngIf="produto.imagem" [src]="produto.imagem" alt="Imagem" width="200">
-  
-        <div class="botoes">
-          <button id="salvar" mat-flat-button  (click)="salvar()">
-            <mat-icon>save</mat-icon>
-            Salvar</button>
-          <button id="cancelar" mat-stroked-button (click)="cancelarForm()">
-            <mat-icon>cancel</mat-icon>
-            Cancelar</button>
-        </div>
-        
+    <!-- Pré-visualização da imagem -->
+    <img *ngIf="produto.imagem" [src]="produto.imagem" alt="Imagem" width="100">
+
+    <div class="botoes">
+      <button id="salvar" mat-flat-button (click)="salvar()">
+        <mat-icon>save</mat-icon>
+        Salvar</button>
+      <button id="cancelar" mat-stroked-button (click)="cancelarForm()">
+        <mat-icon>cancel</mat-icon>
+        Cancelar</button>
     </div>
+
   </div>
-  
+</div>
