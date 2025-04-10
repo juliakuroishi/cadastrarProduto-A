@@ -7,7 +7,6 @@ Permite:
 - Cadastrar produto
 - Listar produtos
 - Visualizar detalhes (nome, preço, descrição, validade e imagem)
-- Interface responsiva e intuitiva
 
 ---
 
